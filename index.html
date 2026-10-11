@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Riyan Studio — Video Editor & Creative Video Content Specialist</title>
+<meta name="description" content="Riyan Studio: video editing for creators, brands and businesses. Reels, YouTube videos, promos and cinematic edits. See selected work and get in touch.">
+<meta name="theme-color" content="#09090a">
+<meta name="robots" content="index,follow">
+
+<!-- CUSTOMIZE BEFORE PUBLISHING (see README "Link preview"):
+     1) replace YOUR-SITE-URL with your real site address
+     2) upload a 1200x630 image named og-image.jpg next to index.html -->
+<link rel="canonical" href="https://YOUR-SITE-URL/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Riyan Studio">
+<meta property="og:title" content="Riyan Studio — Video Editing & Visual Storytelling">
+<meta property="og:description" content="Selected video editing work, services and an easy way to get in touch.">
+<meta property="og:url" content="https://YOUR-SITE-URL/">
+<meta property="og:image" content="https://YOUR-SITE-URL/og-image.jpg">
+<meta property="og:image:alt" content="Riyan Studio — video editing portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Riyan Studio — Video Editing & Visual Storytelling">
+<meta name="twitter:description" content="Selected video editing work, services and an easy way to get in touch.">
+<meta name="twitter:image" content="https://YOUR-SITE-URL/og-image.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309090a'/%3E%3Cpath fill-rule='evenodd' fill='%23c8a96a' d='M22 48V16h13a9 9 0 0 1 2 17.8L45 48h-7l-7-13h-3v13zM28 21v9h7a4.5 4.5 0 0 0 0-9z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ BASE ============ */
+:root{
+  --bg:#09090a; --bg2:#121214; --bg3:#1a1a1d;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.18);
+  --text:#f1ece3; --mute:#8f8b84; --gold:#c8a96a; --gold2:#e2c98f;
+  --radius:14px; --max:1240px; --gut:clamp(20px,5vw,56px);
+  --ff:'Inter Tight','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --fb:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scrollbar-gutter:stable;-webkit-text-size-adjust:100%}
+html.locked{overflow:hidden}
+body{background:var(--bg);color:var(--text);font:400 16px/1.65 var(--fb);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,svg,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--gold);color:#111;padding:10px 16px;border-radius:8px;font-weight:600}
+.skip:focus{top:12px}
+section[id]{scroll-margin-top:72px}
+.eyebrow{font:600 .72rem/1 var(--ff);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--ff);font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:1}
+
+/* buttons */
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;border:1px solid transparent;
+  font:700 .78rem/1 var(--ff);letter-spacing:.16em;text-transform:uppercase;transition:transform .25s,background .25s,color .25s,border-color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:#121212}
+.btn-gold:hover{background:var(--gold2)}
+.btn-ghost{border-color:var(--line2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn svg{width:18px;height:18px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ============ NAV ============ */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;padding:14px 0;border-bottom:1px solid transparent;transition:border-color .3s}
+.nav::before{content:'';position:absolute;inset:0;z-index:-1;background:rgba(9,9,10,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;transition:opacity .3s}
+.nav.scrolled{border-color:var(--line)}
+.nav.scrolled::before{opacity:1}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:44px}
+.brand{position:relative;z-index:2;font:800 1rem/1 var(--ff);letter-spacing:.2em;text-transform:uppercase}
+.brand span{color:var(--gold)}
+.links{display:flex;align-items:center;gap:30px;list-style:none;padding:0}
+.links a:not(.btn){font:600 .76rem/1 var(--ff);letter-spacing:.16em;text-transform:uppercase;color:var(--mute);transition:color .2s;padding:10px 0;display:inline-block}
+.links a:not(.btn):hover{color:var(--text)}
+.links .btn{min-height:44px;padding:0 22px;font-size:.7rem}
+.burger{display:none;position:relative;z-index:2;width:44px;height:44px;border:1px solid var(--line2);border-radius:50%;background:none;place-items:center}
+.burger i{display:block;width:18px;height:1.5px;background:var(--text);position:absolute;transition:transform .3s,opacity .2s}
+.burger i:nth-child(1){transform:translateY(-4px)}
+.burger i:nth-child(2){transform:translateY(4px)}
+.burger[aria-expanded=true] i:nth-child(1){transform:rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){transform:rotate(-45deg)}
+@media (max-width:859px){
+  .burger{display:grid}
+  .links{position:fixed;inset:0;z-index:1;background:var(--bg);flex-direction:column;justify-content:center;gap:10px;
+    visibility:hidden;opacity:0;transform:translateY(-10px);transition:opacity .3s,transform .3s,visibility .3s}
+  .links.open{visibility:visible;opacity:1;transform:none}
+  .links a:not(.btn){font-size:1.5rem;letter-spacing:.1em;color:var(--text);padding:12px 20px}
+  .links .btn{margin-top:18px;min-height:54px;font-size:.78rem}
+}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;padding:clamp(112px,17vh,170px) 0 0}
+.hero::before{content:'';position:absolute;right:-12%;top:-18%;width:min(70vw,780px);aspect-ratio:1;background:radial-gradient(closest-side,rgba(200,169,106,.11),transparent);pointer-events:none}
+.h-hero{font-size:clamp(2.7rem,10.5vw,8.8rem);line-height:.92;letter-spacing:-.045em;margin-top:22px}
+.h-hero span{display:block}
+.h-hero .gold{color:var(--gold)}
+.hero-grid{display:grid;gap:36px;margin-top:clamp(30px,5vw,60px);align-items:end}
+@media (min-width:900px){.hero-grid{grid-template-columns:1fr 1fr;gap:56px}}
+.lead{font-size:clamp(1.02rem,1.6vw,1.2rem);color:#c9c4ba;max-width:34em;margin-bottom:30px}
+.ruler{position:relative;height:46px;margin-top:clamp(48px,8vw,96px);border-top:1px solid var(--line);
+  background:
+   repeating-linear-gradient(90deg,rgba(255,255,255,.24) 0 1px,transparent 1px 60px) 0 0/100% 14px no-repeat,
+   repeating-linear-gradient(90deg,rgba(255,255,255,.10) 0 1px,transparent 1px 12px) 0 0/100% 8px no-repeat}
+.playhead{position:absolute;top:-1px;left:0;width:1px;height:46px;background:var(--gold);animation:scrub 18s ease-in-out infinite alternate}
+.playhead::before{content:'';position:absolute;top:0;left:-5px;border:5px solid transparent;border-top-color:var(--gold)}
+@keyframes scrub{from{transform:translateX(6vw)}to{transform:translateX(94vw)}}
+
+.frame{position:relative;aspect-ratio:16/10;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(135deg,#18181b,#0c0c0e);display:grid;place-items:center;overflow:hidden}
+.frame .mono{font:800 clamp(5rem,15vw,9rem)/1 var(--ff);color:transparent;-webkit-text-stroke:1px rgba(200,169,106,.5)}
+.frame small{position:absolute;font:500 .68rem/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.frame .a{left:16px;bottom:14px}.frame .b{right:16px;top:14px}
+.frame::before,.frame::after{content:'';position:absolute;width:22px;height:22px;border:1px solid var(--gold);opacity:.6}
+.frame::before{left:14px;top:14px;border-right:0;border-bottom:0}
+.frame::after{right:14px;bottom:14px;border-left:0;border-top:0}
+
+.fcard{position:relative;display:block;width:100%;aspect-ratio:16/10;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#0d0d0f;padding:0;text-align:left}
+.fcard img,.fcard .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.fcard:hover img{transform:scale(1.04)}
+.fcard .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.78))}
+.fcard .cap{position:absolute;left:18px;right:18px;bottom:16px}
+.fcard .cap h3{font-size:clamp(1.05rem,2vw,1.4rem);margin-top:8px;letter-spacing:-.01em}
+
+/* ============ SECTIONS ============ */
+.sec{padding:clamp(76px,12vw,150px) 0}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 48px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(2.1rem,6.4vw,4.6rem);margin-top:14px}
+.sec-sub{max-width:30em;color:var(--mute)}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.chip{min-height:44px;padding:0 18px;border:1px solid var(--line2);border-radius:999px;background:none;color:var(--mute);font:600 .72rem/1 var(--ff);letter-spacing:.13em;text-transform:uppercase;transition:all .25s}
+.chip:hover{color:var(--text);border-color:var(--text)}
+.chip[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#121212}
+
+/* grid + cards */
+.grid{display:flex;align-items:flex-start;gap:clamp(14px,2vw,24px)}
+.col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:clamp(14px,2vw,24px)}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .3s,transform .3s;animation:rise .6s both;animation-delay:calc(var(--i,0)*45ms)}
+.card:hover{border-color:rgba(200,169,106,.5);transform:translateY(-3px)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.card-media{position:relative;display:block;width:100%;aspect-ratio:var(--r);padding:0;border:0;background:#0d0d0f;overflow:hidden}
+.card-media img,.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card-media img{transition:transform .7s ease}
+.card:hover .card-media img{transform:scale(1.05)}
+.ph{display:grid;place-items:center;background:radial-gradient(120% 90% at 30% 20%,#222226,#0e0e10)}
+.ph b{font:800 clamp(3rem,8vw,5rem)/1 var(--ff);color:transparent;-webkit-text-stroke:1px rgba(200,169,106,.45)}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28),transparent 35%,transparent 60%,rgba(0,0,0,.5));pointer-events:none}
+.tag,.feat,.demo-tag{position:absolute;padding:6px 10px;border-radius:999px;font:700 .6rem/1 var(--ff);letter-spacing:.13em;text-transform:uppercase;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.tag{left:12px;top:12px;background:rgba(9,9,10,.6);border:1px solid var(--line2)}
+.feat{right:12px;top:12px;background:var(--gold);color:#121212}
+.demo-tag{left:12px;bottom:12px;background:rgba(255,255,255,.14);border:1px dashed var(--line2)}
+.play{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;display:grid;place-items:center;background:rgba(9,9,10,.55);border:1px solid rgba(255,255,255,.4);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .3s,background .3s,color .3s}
+.play svg{width:22px;height:22px;margin-left:2px}
+.card:hover .play,.fcard:hover .play,.card-media:focus-visible .play{transform:scale(1.1);background:var(--gold);color:#121212;border-color:var(--gold)}
+.card-body{padding:16px 18px 18px;cursor:pointer}
+.card-body h3{font-size:1.02rem;letter-spacing:-.01em;line-height:1.2;text-transform:none;font-weight:700}
+.card-body p{margin-top:6px;font-size:.84rem;color:var(--mute)}
+
+.state{border:1px dashed var(--line2);border-radius:var(--radius);padding:clamp(34px,7vw,70px) 24px;text-align:center}
+.state h3{font-size:clamp(1.3rem,3vw,1.8rem);margin-bottom:10px}
+.state p{color:var(--mute);max-width:34em;margin:0 auto 22px}
+.skel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:20px}
+.skel{aspect-ratio:16/11;border-radius:var(--radius);background:linear-gradient(100deg,var(--bg2) 30%,var(--bg3) 50%,var(--bg2) 70%) 0 0/220% 100%;animation:shim 1.4s linear infinite}
+@keyframes shim{to{background-position:-120% 0}}
+
+/* services */
+.svc-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.svc{padding:30px 26px 34px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,var(--bg2),rgba(18,18,20,.2));transition:border-color .3s,transform .3s}
+.svc:hover{border-color:rgba(200,169,106,.5);transform:translateY(-3px)}
+.svc .n{font:600 .75rem/1 ui-monospace,Menlo,Consolas,monospace;color:var(--gold);letter-spacing:.1em}
+.svc h3{font-size:1.15rem;letter-spacing:-.01em;margin:46px 0 12px;line-height:1.15}
+.svc p{color:var(--mute);font-size:.93rem}
+
+/* about */
+.about{display:grid;gap:30px 70px}
+@media (min-width:860px){.about{grid-template-columns:1fr 1.15fr;align-items:start}}
+.about h2{font-size:clamp(2rem,5.4vw,3.8rem);margin-top:14px}
+.about p.t{font-size:clamp(1.05rem,1.8vw,1.28rem);color:#cfcabf;line-height:1.7}
+.points{list-style:none;padding:0;margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.points li{padding:10px 16px;border:1px solid var(--line2);border-radius:999px;font-size:.84rem;color:var(--mute)}
+.portrait{margin-top:26px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);max-width:420px}
+.portrait img{width:100%;height:auto}
+
+/* contact */
+.contact{border:1px solid var(--line);border-radius:calc(var(--radius) + 6px);padding:clamp(30px,6vw,76px);background:radial-gradient(80% 120% at 85% 0%,rgba(200,169,106,.09),transparent),var(--bg2)}
+.contact h2{font-size:clamp(2rem,6vw,4.4rem);margin:14px 0 18px;max-width:11em}
+.contact .sec-sub{margin-bottom:34px;max-width:36em}
+.c-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.c-card{display:flex;align-items:center;gap:16px;min-height:76px;padding:16px 20px;border:1px solid var(--line2);border-radius:var(--radius);background:rgba(9,9,10,.5);transition:border-color .25s,transform .25s,background .25s}
+.c-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.c-card svg{width:26px;height:26px;color:var(--gold);flex:none}
+.c-card b{display:block;font:700 .74rem/1 var(--ff);letter-spacing:.16em;text-transform:uppercase}
+.c-card small{display:block;margin-top:6px;color:var(--mute);font-size:.84rem;overflow-wrap:anywhere}
+.c-card.primary{background:var(--gold);border-color:var(--gold);color:#121212}
+.c-card.primary svg,.c-card.primary small{color:#121212}
+.note{color:var(--mute);font-size:.9rem}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+.f-grid{display:grid;gap:34px;grid-template-columns:1fr}
+@media (min-width:760px){.f-grid{grid-template-columns:1.4fr 1fr 1fr}}
+.f-grid h4{font:700 .7rem/1 var(--ff);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.f-grid ul{list-style:none;padding:0;display:grid;gap:4px}
+.f-grid li a{display:inline-block;padding:8px 0;color:var(--mute);font-size:.92rem;transition:color .2s}
+.f-grid li a:hover{color:var(--text)}
+.f-brand p{color:var(--mute);margin-top:10px}
+.f-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);color:var(--mute);font-size:.84rem}
+.totop{min-height:44px;padding:0 18px;border:1px solid var(--line2);border-radius:999px;background:none;font:600 .7rem/1 var(--ff);letter-spacing:.14em;text-transform:uppercase;color:var(--text)}
+.totop:hover{border-color:var(--gold);color:var(--gold)}
+
+/* floating whatsapp (mobile) */
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:50;width:56px;height:56px;border-radius:50%;display:none;place-items:center;background:var(--gold);color:#121212;box-shadow:0 8px 28px rgba(0,0,0,.5);transition:opacity .25s,transform .25s}
+.fab svg{width:26px;height:26px}
+.fab.off{opacity:0;pointer-events:none;transform:scale(.8)}
+@media (max-width:759px){.fab.on{display:grid}}
+
+/* demo banner */
+.demo{margin:-14px 0 12px;background:#2a2417;border-bottom:1px solid rgba(200,169,106,.4);color:var(--gold2);font-size:.78rem;text-align:center;padding:8px 16px;line-height:1.4}
+body.has-demo .hero{padding-top:calc(clamp(112px,17vh,170px) + 64px)}
+
+/* ============ VIEWER ============ */
+.viewer{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;overflow-y:auto}
+.viewer-back{position:fixed;inset:0;background:rgba(4,4,5,.92);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:fade .25s}
+@keyframes fade{from{opacity:0}}
+.v-close{position:fixed;right:max(12px,env(safe-area-inset-right));top:max(12px,env(safe-area-inset-top));z-index:3;width:48px;height:48px;border-radius:50%;border:1px solid var(--line2);background:rgba(18,18,20,.9);display:grid;place-items:center}
+.v-close:hover{border-color:var(--gold);color:var(--gold)}
+.v-close svg{width:22px;height:22px}
+.viewer-box{position:relative;z-index:2;width:100%;max-width:1100px;display:flex;flex-direction:column;align-items:center;gap:20px;padding:56px 0 20px;animation:pop .3s ease}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
+.player{--arn:1.7778;position:relative;aspect-ratio:var(--ar,16/9);width:min(100%,calc(78vh*var(--arn)),1100px);width:min(100%,calc(78dvh*var(--arn)),1100px);background:#000;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.player video,.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.player .msg{position:absolute;inset:0;display:grid;place-content:center;gap:16px;padding:24px;text-align:center;color:#d9d4ca}
+.v-info{width:min(100%,760px);text-align:left}
+.v-info h3{font-size:clamp(1.3rem,3vw,2rem);margin:10px 0 10px;text-transform:none;letter-spacing:-.02em;line-height:1.15}
+.v-info p{color:var(--mute)}
+.v-info .btns{margin-top:18px}
+.v-info .btn{min-height:46px;padding:0 20px;font-size:.7rem}
+
+noscript .ns{padding:120px var(--gut) 40px;text-align:center;color:var(--mute)}
+
+/* ============ ADMIN (separate, practical light UI) ============ */
+#admin{--a-bg:#f4f3f1;--a-card:#fff;--a-line:#e3e0db;--a-text:#1d1c1a;--a-mute:#6c6963;--a-ac:#1d1c1a;--a-err:#b3261e;--a-ok:#1b7a43;
+  min-height:100vh;min-height:100dvh;background:var(--a-bg);color:var(--a-text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#admin a{color:inherit}
+.a-wrap{max-width:980px;margin:0 auto;padding:16px 16px 80px}
+.a-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:8px 0 18px}
+.a-head-r{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.a-muted{color:var(--a-mute)}
+.a-email{font-size:.85rem;overflow-wrap:anywhere}
+.a-card{background:var(--a-card);border:1px solid var(--a-line);border-radius:12px;padding:18px}
+.a-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--a-ac);background:var(--a-ac);color:#fff!important;font:600 .9rem/1 inherit;cursor:pointer;text-decoration:none}
+.a-btn:disabled{opacity:.5;cursor:not-allowed}
+.a-btn-ghost{background:transparent;color:var(--a-text)!important;border-color:var(--a-line)}
+.a-btn-danger{background:var(--a-err);border-color:var(--a-err)}
+.a-btn-sm{min-height:38px;padding:0 12px;font-size:.84rem}
+.a-stats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:16px}
+.a-stat b{display:block;font-size:1.7rem;line-height:1.1}
+.a-stat span{color:var(--a-mute);font-size:.84rem}
+.a-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 10px}
+.a-bar h2{font:700 1.1rem/1.2 inherit;text-transform:none;letter-spacing:0}
+.a-list{display:grid;gap:10px}
+.a-row{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;background:var(--a-card);border:1px solid var(--a-line);border-radius:12px;padding:10px}
+.a-thumb{width:72px;aspect-ratio:1;border-radius:8px;object-fit:cover;background:#e8e5e0;display:grid;place-items:center;font-weight:700;color:#9b968e;overflow:hidden}
+.a-thumb img{width:100%;height:100%;object-fit:cover}
+.a-row h3{font:600 1rem/1.25 inherit;text-transform:none;letter-spacing:0;overflow-wrap:anywhere}
+.a-meta{font-size:.82rem;color:var(--a-mute);margin-top:2px}
+.a-badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:.7rem;font-weight:700;background:#efe7d3;color:#6b5320;margin-left:6px;vertical-align:middle}
+.a-badge.d{background:#e9e7e3;color:#555}
+.a-acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
+@media (min-width:640px){.a-row{grid-template-columns:72px 1fr auto}.a-acts{grid-column:auto;justify-content:flex-end}}
+.a-empty{text-align:center;padding:36px 16px;color:var(--a-mute)}
+.a-form label{display:block;font-weight:600;font-size:.86rem;margin:14px 0 6px}
+.a-form input[type=text],.a-form input[type=url],.a-form input[type=email],.a-form input[type=password],.a-form select,.a-form textarea,.a-form input[type=file]{width:100%;min-height:44px;padding:10px 12px;border:1px solid #cfcbc4;border-radius:10px;background:#fff;font:inherit;color:inherit}
+.a-form textarea{min-height:90px;resize:vertical}
+.a-hint{font-size:.8rem;color:var(--a-mute);margin-top:5px}
+.a-check{display:flex;align-items:center;gap:10px;font-weight:500!important;margin:12px 0 0!important}
+.a-check input{width:20px;height:20px}
+.a-err{color:var(--a-err);font-size:.88rem;margin-top:12px;font-weight:600}
+.a-sec{border-top:1px solid var(--a-line);margin-top:18px;padding-top:4px}
+.a-overlay{position:fixed;inset:0;z-index:300;background:rgba(20,18,16,.55);display:grid;place-items:start center;padding:16px;overflow-y:auto}
+.a-panel{width:100%;max-width:640px;background:var(--a-card);border-radius:14px;padding:20px;margin:auto 0;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.a-panel h2{font:700 1.2rem/1.2 inherit;text-transform:none;letter-spacing:0;margin-bottom:4px}
+.a-foot{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;margin-top:20px}
+.a-prog{margin-top:14px}
+.a-prog progress{width:100%;height:12px}
+.a-toasts{position:fixed;left:12px;right:12px;bottom:12px;z-index:400;display:grid;gap:8px;justify-items:center;pointer-events:none}
+.a-toast{pointer-events:auto;max-width:560px;width:100%;padding:12px 14px;border-radius:10px;background:#1d1c1a;color:#fff;font-size:.9rem;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.a-toast.err{background:var(--a-err)}.a-toast.ok{background:var(--a-ok)}
+.a-login{max-width:420px;margin:12vh auto 0}
+.a-login h1{font:700 1.4rem/1.2 inherit;text-transform:none;letter-spacing:0;margin-bottom:4px}
+.a-code{display:block;background:#1d1c1a;color:#f3efe6;padding:12px;border-radius:8px;font:.8rem/1.5 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;white-space:pre-wrap;word-break:break-all;margin-top:10px;user-select:all}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to selected work</a>
+<noscript><p class="ns">Riyan Studio's portfolio needs JavaScript to load. Please enable it, or contact Riyan directly.</p></noscript>
+
+<!-- ======================= PUBLIC SITE ======================= -->
+<div id="public">
+
+  <header class="nav" id="nav">
+    <div class="demo" id="demo-banner" hidden><strong>DEMO PREVIEW</strong> — Supabase isn't connected yet, so the cards below are labelled samples, not real projects. Fill in <code>CONFIG</code> (see README) to go live.</div>
+    <div class="wrap nav-in">
+      <a class="brand" href="#home" aria-label="Riyan Studio — home">RIYAN <span>STUDIO</span></a>
+      <ul class="links" id="links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-gold" href="#contact">LET'S WORK TOGETHER</a></li>
+      </ul>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-h">
+      <div class="wrap">
+        <p class="eyebrow">Video Editor · Creative Video Content</p>
+        <h1 class="h-hero" id="hero-h"><span>YOUR VISION.</span><span class="gold">MY EDIT.</span></h1>
+        <div class="hero-grid">
+          <div>
+            <p class="lead">I turn raw footage into polished, engaging videos designed to capture attention and communicate your message.</p>
+            <div class="btns">
+              <a class="btn btn-gold" href="#work">VIEW MY WORK</a>
+              <a class="btn btn-ghost" id="hero-talk" href="#contact">LET'S TALK</a>
+            </div>
+          </div>
+          <div id="hero-visual"></div>
+        </div>
+      </div>
+      <div class="ruler" aria-hidden="true"><i class="playhead"></i></div>
+    </section>
+
+    <section class="sec" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div><p class="eyebrow">Portfolio</p><h2 id="work-h">SELECTED WORK</h2></div>
+          <p class="sec-sub">A selection of edits, creative experiments, and projects that showcase my approach to visual storytelling.</p>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Filter projects by category" hidden></div>
+        <div class="grid" id="grid" aria-live="polite"></div>
+        <div id="work-state"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="services" aria-labelledby="svc-h" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div><p class="eyebrow">What I do</p><h2 id="svc-h">SERVICES</h2></div>
+          <p class="sec-sub">Where I can help with your footage and your goals.</p>
+        </div>
+        <div class="svc-grid" id="svc-grid"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="about" aria-labelledby="about-h" style="padding-top:0">
+      <div class="wrap about">
+        <div class="reveal"><p class="eyebrow">About Riyan</p><h2 id="about-h">THE EDITOR BEHIND THE WORK</h2><div id="about-img"></div></div>
+        <div class="reveal"><p class="t" id="about-text"></p><ul class="points" id="about-points"></ul></div>
+      </div>
+    </section>
+
+    <section class="sec" id="contact" aria-labelledby="contact-h" style="padding-top:0">
+      <div class="wrap">
+        <div class="contact reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-h">HAVE A PROJECT IN MIND?</h2>
+          <p class="sec-sub">Tell me what you're working on. Let's discuss your idea, timeline, and editing requirements.</p>
+          <div class="c-grid" id="c-grid"></div>
+          <p class="note" id="c-note"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="f-grid">
+        <div class="f-brand"><a class="brand" href="#home">RIYAN <span>STUDIO</span></a><p>Video Editing &amp; Visual Storytelling</p></div>
+        <div><h4>Navigate</h4><ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+        <div><h4>Get in touch</h4><ul id="f-contact"></ul></div>
+      </div>
+      <div class="f-bottom"><span>© <span id="year"></span> Riyan Studio. All rights reserved.</span><button class="totop" id="totop" type="button">Back to top ↑</button></div>
+    </div>
+  </footer>
+
+  <a class="fab" id="fab" href="#contact" aria-label="Chat on WhatsApp" hidden></a>
+
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+    <div class="viewer-back" data-close></div>
+    <button class="v-close" id="v-close" type="button" data-close aria-label="Close video"></button>
+    <div class="viewer-box">
+      <div class="player" id="v-player"></div>
+      <div class="v-info"><p class="eyebrow" id="v-cat"></p><h3 id="v-title"></h3><p id="v-desc"></p><div class="btns" id="v-links"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= ADMIN (hash route: #/admin) ======================= -->
+<div id="admin" hidden></div>
+
+<script>
+/* =====================================================================
+   CONFIG — the ONLY block you normally need to edit.
+   Everything here is PUBLIC (it ships to every visitor's browser).
+   Never paste a Supabase "service_role" / secret key here.
+   ===================================================================== */
+const CONFIG = {
+  // --- Supabase (Project Settings -> API) ---
+  SUPABASE_URL: "",          // e.g. "https://abcdxyz.supabase.co"
+  SUPABASE_ANON_KEY: "",     // the "anon" / "publishable" key (safe to be public, protected by RLS)
+
+  // --- Contact (placeholders are NOT shown as working buttons until replaced) ---
+  PHONE: "91XXXXXXXXXX",                 // country code + number, digits only (e.g. 919876543210)
+  EMAIL: "YOUR_EMAIL@example.com",
+  TELEGRAM: "YOUR_TELEGRAM_USERNAME",    // without the @
+  WA_MESSAGE: "Hi Riyan! I visited your portfolio and would like to discuss a video editing project.",
+
+  // --- Portfolio ---
+  MAX_PROJECTS: 20,          // admin slot limit (raise later if your storage allows)
+  MAX_VIDEO_MB: 45,          // keep <= your Supabase plan's per-file limit (Free = 50 MB)
+  MAX_THUMB_MB: 5,
+  CATEGORIES: ["Reels & Shorts","YouTube Videos","Commercial Ads","Motion Graphics","Cinematic Edits","Other"],
+
+  // --- Editable copy ---
+  SERVICES: [
+    {title:"Short-Form Video Editing", text:"Reels, Shorts, and vertical social content."},
+    {title:"YouTube Video Editing",    text:"Pacing, cuts, storytelling, and polished presentation."},
+    {title:"Promotional Video Editing",text:"Video content for brands, products, and businesses."},
+    {title:"Cinematic Editing",        text:"Visual storytelling, atmosphere, and creative transitions."},
+    {title:"Motion Graphics",          text:"Titles, animated elements, and visual enhancements where applicable."}
+  ],
+  ABOUT_TEXT: "I'm Riyan, a video editor focused on turning raw footage into clear, engaging visual stories. I care about pacing, detail, and creating edits that fit each project's goals.",
+  ABOUT_POINTS: ["Pacing & rhythm","Attention to detail","Edits shaped around your goals"],
+  ABOUT_IMAGE: ""            // optional: URL/path of a portrait photo (leave empty to hide)
+};
+/* ===================== END CONFIG ===================== */
+
+(function(){
+'use strict';
+
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const RM=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
+const BUCKET_V='portfolio-videos', BUCKET_T='portfolio-thumbnails';
+const PUBLIC_TITLE=document.title;
+const ICONS={
+  play:'<path d="M8 5.5v13l11-6.5z" fill="currentColor" stroke="none"/>',
+  x:'<path d="M6 6l12 12M18 6L6 18"/>',
+  out:'<path d="M7 17L17 7M8 7h9v9"/>',
+  whatsapp:'<path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.6c.3 2.5 2.9 5.1 5.6 5.6l1.3-1.2-2-1.2-.9.7c-.9-.4-1.8-1.3-2.2-2.2l.7-.9-1.2-2z"/>',
+  telegram:'<path d="M21 4L3 11l6 2.2L11 20l3-4 4.5 3.3z"/><path d="M9 13.2L21 4"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>'
+};
+const ic=(n,sz)=>`<svg viewBox="0 0 24 24" ${sz?`width="${sz}" height="${sz}"`:''} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONS[n]}</svg>`;
+function uuid(){
+  if(window.crypto&&crypto.randomUUID) return crypto.randomUUID();
+  const b=crypto.getRandomValues(new Uint8Array(16)); b[6]=(b[6]&15)|64; b[8]=(b[8]&63)|128;
+  const h=Array.from(b,x=>x.toString(16).padStart(2,'0')).join('');
+  return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`;
+}
+
+/* ---------- config validation ---------- */
+const SB_URL=String(CONFIG.SUPABASE_URL||'').trim().replace(/\/+$/,'');
+const SB_KEY=String(CONFIG.SUPABASE_ANON_KEY||'').trim();
+const SB_OK=/^https:\/\/[a-z0-9.-]+$/i.test(SB_URL)&&!/YOUR|xxxx/i.test(SB_URL)&&SB_KEY.length>20&&!/YOUR/i.test(SB_KEY);
+
+const C=(function(){
+  const o={};
+  const ph=String(CONFIG.PHONE||'').trim();
+  if(/^\+?[\d\s()-]{8,20}$/.test(ph)){
+    const d=ph.replace(/\D/g,'');
+    if(d.length>=8&&d.length<=15){
+      o.phone=d;
+      o.wa=`https://wa.me/${d}?text=${encodeURIComponent(CONFIG.WA_MESSAGE||'')}`;
+      o.tel=`tel:+${d}`;
+    }
+  }
+  const em=String(CONFIG.EMAIL||'').trim();
+  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)&&!/YOUR_|@example\.com$/i.test(em)){
+    o.email=em;
+    o.mail=`mailto:${em}?subject=${encodeURIComponent('Video editing project enquiry')}&body=${encodeURIComponent(CONFIG.WA_MESSAGE||'')}`;
+  }
+  const tg=String(CONFIG.TELEGRAM||'').trim().replace(/^@/,'');
+  if(/^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(tg)&&!/YOUR_/i.test(tg)){o.tgName=tg;o.tg=`https://t.me/${tg}`;}
+  return o;
+})();
+
+/* ---------- media url helpers ---------- */
+const mediaUrl=(bucket,path)=>`${SB_URL}/storage/v1/object/public/${bucket}/${String(path).split('/').map(encodeURIComponent).join('/')}`;
+const thumbSrc=p=>p.thumbnail_path?mediaUrl(BUCKET_T,p.thumbnail_path):(p.thumbnail_url||'');
+const videoSrc=p=>p.video_type==='upload'?mediaUrl(BUCKET_V,p.video_path):(p.video_url||'');
+const RATIOS=['16:9','9:16','1:1'];
+const ar=p=>RATIOS.includes(p.aspect_ratio)?p.aspect_ratio:'16:9';
+const AR_NUM={'16:9':16/9,'9:16':9/16,'1:1':1};
+const CARD_R={'16:9':'16/9','1:1':'1/1','9:16':'9/13'};      // card media boxes (thumbnails are cropped, never stretched)
+const CARD_H={'16:9':.5625,'1:1':1,'9:16':1.44};            // used for balancing columns
+
+/* ---------- video URL parsing (shared by public player and admin) ---------- */
+function parseVideoUrl(raw){
+  let u;
+  try{u=new URL(String(raw||'').trim());}catch(e){return {error:"That doesn't look like a valid link. Paste the full address, starting with https://"};}
+  if(!/^https?:$/.test(u.protocol)) return {error:'Only http(s) links are supported.'};
+  const host=u.hostname.toLowerCase().replace(/^(www|m)\./,'');
+  const YT=/^[A-Za-z0-9_-]{11}$/;
+  const yt=(id,shorts)=>({type:'youtube',id,ratio:shorts?'9:16':'16:9',
+    url:shorts?`https://www.youtube.com/shorts/${id}`:`https://www.youtube.com/watch?v=${id}`,
+    embed:`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`});
+  if(host==='youtu.be'){const id=u.pathname.split('/')[1]||'';if(YT.test(id))return yt(id,false);return {error:"Couldn't find a video ID in that YouTube link."};}
+  if(host==='youtube.com'||host==='youtube-nocookie.com'||host==='music.youtube.com'){
+    const parts=u.pathname.split('/').filter(Boolean);
+    if(parts[0]==='shorts'&&YT.test(parts[1]||''))return yt(parts[1],true);
+    if((parts[0]==='embed'||parts[0]==='live'||parts[0]==='v')&&YT.test(parts[1]||''))return yt(parts[1],false);
+    const v=u.searchParams.get('v');
+    if(parts[0]==='watch'&&YT.test(v||''))return yt(v,false);
+    if(parts[0]==='playlist'||(u.searchParams.get('list')&&!v))return {error:"Playlist links aren't supported. Use the link to one video."};
+    return {error:"Couldn't find a video ID in that YouTube link."};
+  }
+  if(host==='vimeo.com'||host==='player.vimeo.com'){
+    const parts=u.pathname.split('/').filter(Boolean);
+    const idx=parts.findIndex(x=>/^\d{5,}$/.test(x));
+    if(idx<0)return {error:"Couldn't find a video ID in that Vimeo link."};
+    const id=parts[idx];
+    let hash=u.searchParams.get('h')||'';
+    if(!hash&&parts[idx+1]&&/^[a-f0-9]{8,}$/i.test(parts[idx+1]))hash=parts[idx+1];
+    if(hash&&!/^[a-f0-9]+$/i.test(hash))hash='';
+    return {type:'vimeo',id,ratio:'16:9',url:`https://vimeo.com/${id}${hash?'/'+hash:''}`,
+      embed:`https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0${hash?'&h='+hash:''}`};
+  }
+  if(/\.(mp4|webm|m4v|ogv)$/i.test(u.pathname)){
+    if(u.protocol==='http:'&&location.protocol==='https:')return {error:'Use an https:// link — plain http videos are blocked on secure websites.'};
+    return {type:'direct',url:u.href,ratio:null};
+  }
+  return {error:"Unsupported link. Use a YouTube, YouTube Shorts or Vimeo link, or a direct .mp4/.webm file URL. (Google Drive, Instagram and similar share pages can't be embedded.)"};
+}
+
+/* =====================================================================
+   PUBLIC SITE
+   ===================================================================== */
+const DEMO=[
+  {id:'demo-1',title:'Sample Project One',category:'Reels & Shorts',description:'Placeholder card. Your real projects appear here once the backend is connected.',format_label:'Vertical · 9:16',aspect_ratio:'9:16',featured:true,demo:true},
+  {id:'demo-2',title:'Sample Project Two',category:'YouTube Videos',description:'Placeholder card for a landscape edit.',format_label:'Landscape · 16:9',aspect_ratio:'16:9',demo:true},
+  {id:'demo-3',title:'Sample Project Three',category:'Cinematic Edits',description:'Placeholder card.',format_label:'Landscape · 16:9',aspect_ratio:'16:9',demo:true},
+  {id:'demo-4',title:'Sample Project Four',category:'Reels & Shorts',description:'Placeholder card.',format_label:'Vertical · 9:16',aspect_ratio:'9:16',demo:true},
+  {id:'demo-5',title:'Sample Project Five',category:'Commercial Ads',description:'Placeholder card for a square cut.',format_label:'Square · 1:1',aspect_ratio:'1:1',demo:true},
+  {id:'demo-6',title:'Sample Project Six',category:'Motion Graphics',description:'Placeholder card.',format_label:'Landscape · 16:9',aspect_ratio:'16:9',demo:true}
+];
+const S={projects:[],filter:'All Work',demo:false,cols:0};
+let publicReady=false;
+
+function phHtml(p){return `<span class="ph" aria-hidden="true"><b>${esc((p.title||'R').trim().charAt(0).toUpperCase()||'R')}</b></span>`;}
+function thumbHtml(p){
+  const s=thumbSrc(p);
+  return s?`<img src="${esc(s)}" alt="${esc(p.title)} — video thumbnail" loading="lazy" decoding="async" data-fb="1">`:phHtml(p);
+}
+document.addEventListener('error',e=>{
+  const t=e.target;
+  if(t&&t.tagName==='IMG'&&t.dataset&&t.dataset.fb){
+    const holder=document.createElement('div');holder.innerHTML=phHtml({title:t.alt||'R'});
+    t.replaceWith(holder.firstChild);
+  }
+},true);
+
+function cardEl(p,i){
+  const el=document.createElement('article');
+  el.className='card';el.style.setProperty('--i',i%9);
+  el.innerHTML=`<button type="button" class="card-media" data-open="${esc(p.id)}" style="--r:${CARD_R[ar(p)]}" aria-label="Play: ${esc(p.title)}">
+    ${thumbHtml(p)}<span class="shade"></span><span class="tag">${esc(p.category)}</span>
+    ${p.featured?'<span class="feat">Featured</span>':''}${p.demo?'<span class="demo-tag">Sample</span>':''}
+    <span class="play">${ic('play')}</span></button>
+    <div class="card-body" data-open="${esc(p.id)}"><h3>${esc(p.title)}</h3>${p.format_label?`<p>${esc(p.format_label)}</p>`:''}</div>`;
+  return el;
+}
+const colCount=()=>{const w=$('#grid').clientWidth||window.innerWidth;return w<620?1:(w<980?2:3);};
+function visible(){return S.filter==='All Work'?S.projects:S.projects.filter(p=>p.category===S.filter);}
+function renderGrid(){
+  const grid=$('#grid');grid.innerHTML='';
+  const list=visible();const n=colCount();S.cols=n;
+  const cols=Array.from({length:n},()=>{const d=document.createElement('div');d.className='col';grid.appendChild(d);return {el:d,h:0};});
+  list.forEach((p,i)=>{
+    const c=cols.reduce((a,b)=>b.h<a.h?b:a);
+    c.el.appendChild(cardEl(p,i));c.h+=CARD_H[ar(p)]+.32;
+  });
+}
+function renderFilters(){
+  const box=$('#filters');
+  const present=new Set(S.projects.map(p=>p.category));
+  const cats=CONFIG.CATEGORIES.filter(c=>present.has(c)).concat([...present].filter(c=>!CONFIG.CATEGORIES.includes(c)));
+  if(!cats.includes(S.filter)&&S.filter!=='All Work')S.filter='All Work';
+  if(cats.length<2){box.hidden=true;box.innerHTML='';return;}
+  box.hidden=false;
+  box.innerHTML=['All Work',...cats].map(c=>`<button type="button" class="chip" data-filter="${esc(c)}" aria-pressed="${c===S.filter}">${esc(c)}</button>`).join('');
+}
+function renderHero(){
+  const box=$('#hero-visual');
+  const f=S.projects.find(p=>p.featured);
+  if(f){
+    box.innerHTML=`<button type="button" class="fcard" data-open="${esc(f.id)}" aria-label="Play featured project: ${esc(f.title)}">${thumbHtml(f)}<span class="shade"></span>
+      <span class="feat" style="left:16px;right:auto;top:16px">Featured</span><span class="play">${ic('play')}</span>
+      <span class="cap"><span class="eyebrow">${esc(f.category)}</span><h3>${esc(f.title)}</h3></span></button>`;
+  }else{
+    box.innerHTML=`<div class="frame" aria-hidden="true"><span class="mono">R</span><small class="a">00:00:00:00</small><small class="b">Riyan Studio</small></div>`;
+  }
+}
+function setWorkState(kind){
+  const box=$('#work-state');
+  if(kind==='loading'){box.innerHTML='<div class="skel-grid" aria-hidden="true"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>';$('#grid').innerHTML='';return;}
+  if(kind==='error'){
+    box.innerHTML=`<div class="state" role="alert"><h3>Couldn't load the portfolio</h3><p>Something went wrong while loading the projects. Please check your connection and try again.</p><div class="btns" style="justify-content:center"><button class="btn btn-gold" type="button" id="retry">TRY AGAIN</button>${C.wa?`<a class="btn btn-ghost" href="${esc(C.wa)}" target="_blank" rel="noopener">MESSAGE ME</a>`:''}</div></div>`;
+    $('#grid').innerHTML='';$('#filters').hidden=true;return;
+  }
+  if(kind==='empty'){
+    box.innerHTML=`<div class="state"><h3>New work is on the way</h3><p>My portfolio is being updated. In the meantime, tell me about your project and let's talk.</p><a class="btn btn-gold" href="#contact">LET'S TALK</a></div>`;
+    $('#grid').innerHTML='';$('#filters').hidden=true;return;
+  }
+  box.innerHTML='';
+}
+async function fetchProjects(){
+  const qs=new URLSearchParams({
+    select:'id,title,category,description,format_label,video_type,video_url,video_path,thumbnail_url,thumbnail_path,aspect_ratio,featured,display_order,external_link',
+    published:'eq.true',order:'display_order.asc,created_at.asc',limit:String(Math.max(CONFIG.MAX_PROJECTS,50))
+  });
+  const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),15000);
+  try{
+    const r=await fetch(`${SB_URL}/rest/v1/projects?${qs}`,{headers:{apikey:SB_KEY,Accept:'application/json'},signal:ctl.signal});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const data=await r.json();
+    if(!Array.isArray(data))throw new Error('Unexpected response');
+    return data;
+  }finally{clearTimeout(t);}
+}
+async function loadWork(){
+  setWorkState('loading');
+  if(!SB_OK){S.demo=true;S.projects=DEMO;$('#demo-banner').hidden=false;document.body.classList.add('has-demo');}
+  else{
+    try{S.projects=await fetchProjects();}
+    catch(e){console.error('Portfolio load failed:',e);setWorkState('error');renderHero();return;}
+  }
+  if(!S.projects.length){setWorkState('empty');renderHero();return;}
+  setWorkState('');renderFilters();renderGrid();renderHero();
+}
+
+/* ---------- static sections ---------- */
+function renderStatic(){
+  $('#svc-grid').innerHTML=CONFIG.SERVICES.map((s,i)=>`<article class="svc reveal"><span class="n">${String(i+1).padStart(2,'0')}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></article>`).join('');
+  $('#about-text').textContent=CONFIG.ABOUT_TEXT;
+  $('#about-points').innerHTML=(CONFIG.ABOUT_POINTS||[]).map(x=>`<li>${esc(x)}</li>`).join('');
+  if(CONFIG.ABOUT_IMAGE)$('#about-img').innerHTML=`<div class="portrait"><img src="${esc(CONFIG.ABOUT_IMAGE)}" alt="Portrait of Riyan" loading="lazy" decoding="async"></div>`;
+  $('#year').textContent=new Date().getFullYear();
+
+  const cards=[];
+  if(C.wa)cards.push(`<a class="c-card primary" href="${esc(C.wa)}" target="_blank" rel="noopener">${ic('whatsapp')}<span><b>WhatsApp</b><small>Fastest way to reach me</small></span></a>`);
+  if(C.tg)cards.push(`<a class="c-card" href="${esc(C.tg)}" target="_blank" rel="noopener">${ic('telegram')}<span><b>Telegram</b><small>@${esc(C.tgName)}</small></span></a>`);
+  if(C.mail)cards.push(`<a class="c-card" href="${esc(C.mail)}">${ic('mail')}<span><b>Email</b><small>${esc(C.email)}</small></span></a>`);
+  if(C.tel)cards.push(`<a class="c-card" href="${esc(C.tel)}">${ic('phone')}<span><b>Call</b><small>+${esc(C.phone)}</small></span></a>`);
+  $('#c-grid').innerHTML=cards.join('');
+  $('#c-note').textContent=cards.length?'':(SB_OK?'Contact details will be added here soon.':'Contact buttons appear here once you replace the placeholder values in CONFIG (phone, email, Telegram).');
+  $('#c-note').style.marginTop=cards.length?'0':'0';
+
+  const fc=[];
+  if(C.wa)fc.push(`<li><a href="${esc(C.wa)}" target="_blank" rel="noopener">WhatsApp</a></li>`);
+  if(C.tg)fc.push(`<li><a href="${esc(C.tg)}" target="_blank" rel="noopener">Telegram</a></li>`);
+  if(C.mail)fc.push(`<li><a href="${esc(C.mail)}">${esc(C.email)}</a></li>`);
+  if(C.tel)fc.push(`<li><a href="${esc(C.tel)}">+${esc(C.phone)}</a></li>`);
+  $('#f-contact').innerHTML=fc.length?fc.join(''):'<li><a href="#contact">Contact section</a></li>';
+
+  if(C.wa){
+    const t=$('#hero-talk');t.href=C.wa;t.target='_blank';t.rel='noopener';
+    const f=$('#fab');f.href=C.wa;f.target='_blank';f.rel='noopener';f.innerHTML=ic('whatsapp');f.hidden=false;f.classList.add('on');
+  }
+  $('#v-close').innerHTML=ic('x');
+}
+
+/* ---------- reveal / nav / fab ---------- */
+let revealIO=null;
+function initReveal(){
+  const els=$$('.reveal:not(.in)');
+  if(RM.matches||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  revealIO=revealIO||new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');revealIO.unobserve(en.target);}}),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  els.forEach(e=>revealIO.observe(e));
+}
+function lockScroll(on){document.documentElement.classList.toggle('locked',on);}
+function setMenu(open){
+  $('#links').classList.toggle('open',open);
+  const b=$('#burger');b.setAttribute('aria-expanded',open);b.setAttribute('aria-label',open?'Close menu':'Open menu');
+  lockScroll(open);
+}
+
+/* ---------- viewer ---------- */
+let lastFocus=null,viewerOpen=false;
+function failBox(p,src){
+  const link=p.external_link||(p.video_type!=='upload'?p.video_url:'')||src;
+  return `<div class="msg"><p>This video couldn't be loaded right now.</p>${link?`<a class="btn btn-ghost" href="${esc(link)}" target="_blank" rel="noopener">OPEN SOURCE VIDEO ${ic('out')}</a>`:''}</div>`;
+}
+function buildPlayer(p){
+  const box=$('#v-player');box.innerHTML='';
+  const r=ar(p);box.style.setProperty('--ar',r.replace(':','/'));box.style.setProperty('--arn',AR_NUM[r]);
+  if(p.demo){box.innerHTML='<div class="msg"><p><strong>Demo sample</strong><br>No video is attached to this placeholder. Connect Supabase and add your first project to see real playback here.</p></div>';return;}
+  const src=videoSrc(p);
+  if(!src){box.innerHTML=failBox(p,'');return;}
+  if(p.video_type==='youtube'||p.video_type==='vimeo'){
+    const pr=parseVideoUrl(p.video_url);
+    if(pr.error||!pr.embed){box.innerHTML=failBox(p,src);return;}
+    const f=document.createElement('iframe');
+    f.src=pr.embed;f.title=p.title;f.loading='lazy';
+    f.allow='autoplay; fullscreen; picture-in-picture; encrypted-media';f.allowFullscreen=true;
+    f.referrerPolicy='strict-origin-when-cross-origin';
+    box.appendChild(f);return;
+  }
+  const v=document.createElement('video');
+  v.controls=true;v.playsInline=true;v.preload='metadata';
+  const th=thumbSrc(p);if(th)v.poster=th;
+  v.setAttribute('aria-label',p.title);
+  v.addEventListener('error',()=>{box.innerHTML=failBox(p,src);},{once:true});
+  v.src=src;box.appendChild(v);
+  const pl=v.play();if(pl&&pl.catch)pl.catch(()=>{});
+}
+function openViewer(p){
+  lastFocus=document.activeElement;
+  $('#v-cat').textContent=p.category||'';
+  $('#v-title').textContent=p.title;
+  $('#v-desc').textContent=p.description||'';$('#v-desc').hidden=!p.description;
+  const links=[];
+  if(p.external_link)links.push(`<a class="btn btn-ghost" href="${esc(p.external_link)}" target="_blank" rel="noopener">VIEW PROJECT ${ic('out')}</a>`);
+  if(!p.demo&&(p.video_type==='youtube'||p.video_type==='vimeo'||p.video_type==='direct')&&p.video_url)links.push(`<a class="btn btn-ghost" href="${esc(p.video_url)}" target="_blank" rel="noopener">OPEN ORIGINAL ${ic('out')}</a>`);
+  $('#v-links').innerHTML=links.join('');
+  buildPlayer(p);
+  $('#viewer').hidden=false;viewerOpen=true;lockScroll(true);
+  $('#v-close').focus();
+}
+function closeViewer(){
+  if(!viewerOpen)return;
+  const pl=$('#v-player');const v=pl.querySelector('video');if(v){v.pause();v.removeAttribute('src');v.load();}
+  pl.innerHTML='';
+  $('#viewer').hidden=true;viewerOpen=false;
+  if(!$('#links').classList.contains('open'))lockScroll(false);
+  if(lastFocus&&lastFocus.focus&&document.contains(lastFocus))lastFocus.focus();
+}
+function trapFocus(e){
+  if(e.key!=='Tab'||!viewerOpen)return;
+  const f=$$('#viewer a[href],#viewer button,#viewer video,#viewer iframe').filter(x=>!x.disabled&&x.offsetParent!==null||x===$('#v-close'));
+  if(!f.length)return;
+  const first=f[0],last=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+}
+
+/* ---------- public init ---------- */
+function initPublic(){
+  publicReady=true;
+  renderStatic();initReveal();loadWork();
+
+  const nav=$('#nav');
+  const onScroll=()=>nav.classList.toggle('scrolled',window.scrollY>40);
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  $('#burger').addEventListener('click',()=>setMenu(!$('#links').classList.contains('open')));
+  $('#links').addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false);});
+  $('#totop').addEventListener('click',()=>window.scrollTo({top:0,behavior:RM.matches?'auto':'smooth'}));
+
+  $('#public').addEventListener('click',e=>{
+    const f=e.target.closest('[data-filter]');
+    if(f){S.filter=f.dataset.filter;renderFilters();renderGrid();return;}
+    if(e.target.closest('#retry')){loadWork();return;}
+    const o=e.target.closest('[data-open]');
+    if(o){const p=S.projects.find(x=>String(x.id)===o.dataset.open);if(p)openViewer(p);return;}
+    if(e.target.closest('[data-close]'))closeViewer();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      if(viewerOpen)closeViewer();
+      else if($('#links').classList.contains('open')){setMenu(false);$('#burger').focus();}
+    }
+    trapFocus(e);
+  });
+
+  let rt;window.addEventListener('resize',()=>{
+    clearTimeout(rt);rt=setTimeout(()=>{
+      if(window.innerWidth>=860&&$('#links').classList.contains('open'))setMenu(false);
+      if(S.projects.length&&colCount()!==S.cols)renderGrid();
+    },150);
+  });
+
+  if('IntersectionObserver' in window&&C.wa){
+    const fab=$('#fab');
+    new IntersectionObserver(es=>es.forEach(en=>fab.classList.toggle('off',en.isIntersecting)),{threshold:.25}).observe($('#contact'));
+  }
+}
+
+/* =====================================================================
+   ADMIN (route: #/admin) — real Supabase auth, DB and storage
+   ===================================================================== */
+const A={sb:null,projects:[],busy:false,xhr:null,view:'',editId:null,lib:null,session:null};
+const adminEl=()=>$('#admin');
+
+function loadLib(){
+  if(window.supabase&&window.supabase.createClient)return Promise.resolve();
+  if(A.lib)return A.lib;
+  A.lib=new Promise((res,rej)=>{
+    const s=document.createElement('script');
+    s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+    s.onload=res;s.onerror=()=>{A.lib=null;rej(new Error('Could not load the Supabase library.'));};
+    document.head.appendChild(s);
+  });
+  return A.lib;
+}
+function shell(inner,o){
+  o=o||{};
+  adminEl().innerHTML=`<div class="a-wrap"><header class="a-head"><div><strong>Riyan Studio</strong> <span class="a-muted">· Admin</span></div>
+    <div class="a-head-r">${o.email?`<span class="a-muted a-email">${esc(o.email)}</span>`:''}<a class="a-btn a-btn-ghost" href="#home">View site</a>${o.logout?'<button class="a-btn a-btn-ghost" type="button" data-a="logout">Log out</button>':''}</div></header>
+    <main>${inner}</main></div><div id="a-toasts" class="a-toasts" aria-live="polite"></div>`;
+}
+function toast(msg,kind){
+  const box=$('#a-toasts');if(!box)return;
+  const t=document.createElement('div');t.className='a-toast '+(kind||'');t.textContent=msg;box.appendChild(t);
+  setTimeout(()=>t.remove(),kind==='err'?9000:4500);
+}
+function friendly(e){
+  const m=(e&&e.message)||String(e||'Unknown error');
+  if(/Failed to fetch|NetworkError|network/i.test(m))return 'Network problem — check your internet connection and try again.';
+  if(/row-level security|not authori[sz]ed|permission denied/i.test(m))return "You're not authorised to do that. Make sure this account is in the admins table (README step 5).";
+  if(/relation .* does not exist|schema cache/i.test(m))return 'The database tables are missing. Run supabase-setup.sql in the Supabase SQL Editor.';
+  return m;
+}
+const isAuthErr=e=>!!e&&(e.status===401||e.code==='PGRST301'||/jwt|token.*expired|not authenticated/i.test(e.message||''));
+async function fail(e,ctx){
+  console.error(ctx||'admin error',e);
+  if(isAuthErr(e)){
+    renderLogin('Your session expired. Please log in again.');
+    try{await A.sb.auth.signOut({scope:'local'});}catch(_){}
+    return;
+  }
+  toast(friendly(e),'err');
+}
+
+async function enterAdmin(){
+  A.view='';
+  shell('<div class="a-card a-empty">Loading…</div>');
+  if(!SB_OK){
+    A.view='setup';
+    shell(`<div class="a-card"><h2 style="margin-bottom:8px">Backend not configured</h2>
+      <p>The admin area needs a Supabase project. Until then the public site runs as a demo and nothing can be saved.</p>
+      <ol style="margin:12px 0 0 20px;display:grid;gap:6px"><li>Create a free Supabase project and run <b>supabase-setup.sql</b>.</li>
+      <li>Paste your <b>Project URL</b> and <b>anon/publishable key</b> into <code>CONFIG</code> at the top of the script in <b>index.html</b>.</li>
+      <li>Create and authorise your admin account (README, steps 4–5), then reload this page.</li></ol></div>`);
+    return;
+  }
+  try{await loadLib();}catch(e){shell(`<div class="a-card"><p class="a-err">${esc(e.message)} Check your internet connection and reload.</p></div>`);return;}
+  if(!A.sb){
+    A.sb=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
+    A.sb.auth.onAuthStateChange(ev=>{
+      if(ev==='SIGNED_OUT'&&A.view&&A.view!=='login'&&!A.busy)setTimeout(()=>renderLogin('You were signed out.'),0);
+    });
+  }
+  try{
+    const {data,error}=await A.sb.auth.getSession();
+    if(error)throw error;
+    if(!data.session){renderLogin();return;}
+    await verifyAdmin(data.session);
+  }catch(e){shell(`<div class="a-card"><p class="a-err">${esc(friendly(e))}</p></div>`);}
+}
+function renderLogin(msg){
+  A.view='login';
+  shell(`<div class="a-card a-login"><h1>Admin login</h1><p class="a-muted">Only the site owner can sign in here. Visitors never need to log in.</p>
+    <form class="a-form" id="a-login" novalidate>
+      <label for="l-email">Email</label><input id="l-email" type="email" autocomplete="username" required>
+      <label for="l-pw">Password</label><input id="l-pw" type="password" autocomplete="current-password" required>
+      <p class="a-err" id="l-err" role="alert">${esc(msg||'')}</p>
+      <div class="a-foot" style="justify-content:stretch"><button class="a-btn" style="flex:1" type="submit" id="l-btn">Log in</button></div>
+    </form></div>`);
+}
+async function doLogin(){
+  const email=$('#l-email').value.trim(),pw=$('#l-pw').value,err=$('#l-err'),btn=$('#l-btn');
+  if(!email||!pw){err.textContent='Enter your email and password.';return;}
+  btn.disabled=true;btn.textContent='Signing in…';err.textContent='';
+  try{
+    const {data,error}=await A.sb.auth.signInWithPassword({email,password:pw});
+    if(error)throw error;
+    await verifyAdmin(data.session);
+  }catch(e){
+    err.textContent=/invalid login/i.test(e.message||'')?'Incorrect email or password.':friendly(e);
+    btn.disabled=false;btn.textContent='Log in';
+  }
+}
+async function verifyAdmin(session){
+  A.session=session;
+  const {data,error}=await A.sb.from('admins').select('user_id').eq('user_id',session.user.id).maybeSingle();
+  if(error){
+    if(isAuthErr(error)){renderLogin('Your session expired. Please log in again.');return;}
+    shell(`<div class="a-card"><p class="a-err">${esc(friendly(error))}</p></div>`,{logout:true,email:session.user.email});return;
+  }
+  if(!data){
+    A.view='denied';
+    shell(`<div class="a-card"><h2 style="margin-bottom:8px">Signed in, but not authorised</h2>
+      <p>You're logged in as <b>${esc(session.user.email)}</b>, but this account isn't on the administrator list, so it can't change anything.</p>
+      <p style="margin-top:10px">To authorise it, open Supabase → SQL Editor and run:</p>
+      <code class="a-code">insert into public.admins (user_id, email)\nvalues ('${esc(session.user.id)}', '${esc(session.user.email)}');</code>
+      <p class="a-muted" style="margin-top:10px">Then reload this page.</p></div>`,{logout:true,email:session.user.email});
+    return;
+  }
+  await refreshProjects();
+}
+async function refreshProjects(){
+  const {data,error}=await A.sb.from('projects').select('*').order('display_order',{ascending:true}).order('created_at',{ascending:true});
+  if(error){
+    if(A.view!=='dash'&&!isAuthErr(error)){shell(`<div class="a-card"><p class="a-err">${esc(friendly(error))}</p></div>`,{logout:true,email:A.session&&A.session.user.email});return;}
+    await fail(error,'load projects');return;
+  }
+  A.projects=data||[];renderDashboard();
+}
+function adminThumb(p){
+  const s=thumbSrc(p);
+  return s?`<span class="a-thumb"><img src="${esc(s)}" alt="" loading="lazy"></span>`:`<span class="a-thumb">${esc((p.title||'?').charAt(0).toUpperCase())}</span>`;
+}
+function renderDashboard(){
+  A.view='dash';
+  const total=A.projects.length,pub=A.projects.filter(p=>p.published).length,max=CONFIG.MAX_PROJECTS,left=Math.max(0,max-total);
+  const rows=A.projects.map((p,i)=>`<div class="a-row">${adminThumb(p)}
+    <div><h3>${esc(p.title)}${p.featured?'<span class="a-badge">Featured</span>':''}${p.published?'':'<span class="a-badge d">Draft</span>'}</h3>
+    <div class="a-meta">${esc(p.category)} · ${p.video_type==='upload'?'Uploaded file':esc(p.video_type)} · ${esc(p.aspect_ratio||'16:9')} · #${i+1}</div></div>
+    <div class="a-acts"><button class="a-btn a-btn-ghost a-btn-sm" type="button" data-a="up" data-id="${esc(p.id)}" aria-label="Move ${esc(p.title)} up" ${i===0?'disabled':''}>↑</button>
+    <button class="a-btn a-btn-ghost a-btn-sm" type="button" data-a="down" data-id="${esc(p.id)}" aria-label="Move ${esc(p.title)} down" ${i===total-1?'disabled':''}>↓</button>
+    <button class="a-btn a-btn-ghost a-btn-sm" type="button" data-a="edit" data-id="${esc(p.id)}">Edit</button>
+    <button class="a-btn a-btn-danger a-btn-sm" type="button" data-a="delete" data-id="${esc(p.id)}">Delete</button></div></div>`).join('');
+  shell(`<div class="a-stats">
+    <div class="a-card a-stat"><b>${pub}</b><span>Published projects</span></div>
+    <div class="a-card a-stat"><b>${left}</b><span>Slots available (of ${max})</span></div>
+    <div class="a-card a-stat"><b>${total-pub}</b><span>Drafts (hidden from visitors)</span></div></div>
+    <div class="a-bar"><h2>Projects</h2><button class="a-btn" type="button" data-a="add" ${left<=0?'disabled':''}>+ Add project</button></div>
+    ${left<=0?`<p class="a-hint" style="margin-bottom:10px">Project limit reached (${max}). Delete one, or raise MAX_PROJECTS in CONFIG if your storage allows.</p>`:''}
+    <div class="a-list">${rows||'<div class="a-card a-empty">No projects yet. Click <b>Add project</b> to publish your first video.</div>'}</div>`,{logout:true,email:A.session&&A.session.user.email});
+}
+
+/* ----- file / url checks ----- */
+const MB=n=>(n/1048576).toFixed(1);
+const VID_MIME={'video/mp4':'mp4','video/webm':'webm'};
+const IMG_MIME={'image/jpeg':'jpg','image/png':'png','image/webp':'webp'};
+function videoExt(f){if(VID_MIME[f.type])return VID_MIME[f.type];const m=/\.(mp4|webm)$/i.exec(f.name);return m?m[1].toLowerCase():null;}
+function imageExt(f){if(IMG_MIME[f.type])return IMG_MIME[f.type];const m=/\.(jpe?g|png|webp)$/i.exec(f.name);return m?(m[1].toLowerCase()==='jpeg'?'jpg':m[1].toLowerCase()):null;}
+function checkVideoFile(f){
+  if(!videoExt(f))return 'Unsupported video type. Please choose an MP4 or WebM file.';
+  if(!f.size)return 'That file is empty.';
+  if(f.size>CONFIG.MAX_VIDEO_MB*1048576)return `This video is ${MB(f.size)} MB, but the limit is ${CONFIG.MAX_VIDEO_MB} MB. Compress it (e.g. 1080p H.264), or add it as a YouTube/Vimeo link instead.`;
+  return null;
+}
+function checkImageFile(f){
+  if(!imageExt(f))return 'Unsupported image type. Use JPG, PNG or WebP.';
+  if(f.size>CONFIG.MAX_THUMB_MB*1048576)return `This image is ${MB(f.size)} MB; the limit is ${CONFIG.MAX_THUMB_MB} MB.`;
+  return null;
+}
+function probeVideo(src,ms){
+  return new Promise((res,rej)=>{
+    const v=document.createElement('video');v.preload='metadata';v.muted=true;let done=false;
+    const fin=(ok,val)=>{if(done)return;done=true;clearTimeout(t);v.removeAttribute('src');try{v.load();}catch(_){}(ok?res:rej)(val);};
+    const t=setTimeout(()=>fin(false,new Error("The video didn't respond in time.")),ms||12000);
+    v.onloadedmetadata=()=>fin(true,{w:v.videoWidth,h:v.videoHeight});
+    v.onerror=()=>fin(false,new Error("This browser couldn't play that video. Use an H.264 MP4 or a WebM file."));
+    v.src=src;
+  });
+}
+function probeImage(src){
+  return new Promise((res,rej)=>{
+    const i=new Image();const t=setTimeout(()=>rej(new Error("The thumbnail link didn't respond in time.")),12000);
+    i.onload=()=>{clearTimeout(t);res();};i.onerror=()=>{clearTimeout(t);rej(new Error("That image link couldn't be loaded. Check the address (it must be a direct image URL)."));};
+    i.referrerPolicy='no-referrer';i.src=src;
+  });
+}
+const ratioOf=m=>{if(!m||!m.w||!m.h)return null;const r=m.w/m.h;return r>1.2?'16:9':(r<.8?'9:16':'1:1');};
+async function probeFile(f){const u=URL.createObjectURL(f);try{return await probeVideo(u,10000);}finally{URL.revokeObjectURL(u);}}
+
+/* ----- upload with progress (XHR to the Storage REST API using the admin's session) ----- */
+async function uploadFile(bucket,path,file,onProgress){
+  const {data}=await A.sb.auth.getSession();
+  if(!data.session){const e=new Error('Not signed in.');e.status=401;throw e;}
+  return new Promise((resolve,reject)=>{
+    const xhr=new XMLHttpRequest();A.xhr=xhr;
+    xhr.open('POST',`${SB_URL}/storage/v1/object/${bucket}/${path.split('/').map(encodeURIComponent).join('/')}`);
+    xhr.setRequestHeader('apikey',SB_KEY);
+    xhr.setRequestHeader('Authorization','Bearer '+data.session.access_token);
+    xhr.setRequestHeader('x-upsert','false');
+    xhr.upload.onprogress=e=>{if(e.lengthComputable)onProgress(e.loaded/e.total);};
+    xhr.onload=()=>{
+      A.xhr=null;
+      if(xhr.status>=200&&xhr.status<300)return resolve();
+      let m='';try{m=JSON.parse(xhr.responseText).message||'';}catch(_){}
+      let msg=m||('Upload failed (HTTP '+xhr.status+').');
+      if(xhr.status===413||/exceeded|too large/i.test(m))msg='The storage service rejected the file as too large. Compress it or use a video link.';
+      else if(xhr.status===401){const e=new Error('Session expired.');e.status=401;return reject(e);}
+      else if(xhr.status===403||/row-level security/i.test(m))msg="Upload not allowed. Make sure this account is in the admins table and the storage policies from supabase-setup.sql were run.";
+      else if(/mime/i.test(m))msg='That file type is not allowed. Use MP4/WebM for videos and JPG/PNG/WebP for thumbnails.';
+      else if(/bucket not found/i.test(m))msg='Storage bucket missing. Run supabase-setup.sql.';
+      reject(new Error(msg));
+    };
+    xhr.onerror=()=>{A.xhr=null;reject(new Error('Network error while uploading. Check your connection and press Save again to retry.'));};
+    xhr.onabort=()=>{A.xhr=null;reject(new Error('Upload cancelled.'));};
+    const fd=new FormData();fd.append('cacheControl','31536000');
+    const blob=file.type?file:new Blob([file],{type:VID_MIME['video/'+videoExt(file)]||'application/octet-stream'});
+    fd.append('',blob,file.name);xhr.send(fd);
+  });
+}
+async function removeFiles(list){
+  const out=await Promise.allSettled(list.map(([b,p])=>A.sb.storage.from(b).remove([p])));
+  return out.filter(x=>x.status==='rejected'||(x.value&&x.value.error)).length;
+}
+
+/* ----- form ----- */
+function formHtml(p){
+  const edit=!!p;
+  const cats=CONFIG.CATEGORIES.slice();if(p&&!cats.includes(p.category))cats.unshift(p.category);
+  const curVid=p?(p.video_type==='upload'?'Uploaded file':p.video_url):'';
+  return `<div class="a-overlay" id="a-overlay"><div class="a-panel" role="dialog" aria-modal="true" aria-labelledby="f-h">
+    <h2 id="f-h">${edit?'Edit project':'Add project'}</h2>
+    <p class="a-muted" style="font-size:.88rem">${edit?'Changes go live for visitors as soon as they save successfully.':'The project goes live as soon as it saves successfully (untick “Published” to keep it as a draft).'}</p>
+    <form class="a-form" id="a-form" novalidate>
+      <label for="f-title">Title *</label><input id="f-title" type="text" maxlength="120" value="${esc(p?p.title:'')}" required>
+      <label for="f-cat">Category</label><select id="f-cat">${cats.map(c=>`<option value="${esc(c)}" ${p&&p.category===c?'selected':''}>${esc(c)}</option>`).join('')}</select>
+      <label for="f-format">Format label (optional)</label><input id="f-format" type="text" maxlength="40" placeholder="e.g. Reel · 30s" value="${esc(p?p.format_label||'':'')}">
+      <label for="f-desc">Short description (optional)</label><textarea id="f-desc" maxlength="600">${esc(p?p.description||'':'')}</textarea>
+
+      <div class="a-sec"><label for="f-vmode">Video *</label>
+      <select id="f-vmode">${edit?`<option value="keep">Keep current video</option>`:''}<option value="upload" ${edit?'':'selected'}>Upload a file (MP4 / WebM, max ${CONFIG.MAX_VIDEO_MB} MB)</option><option value="url">Use a video link (YouTube, Shorts, Vimeo, direct .mp4)</option></select>
+      ${edit?`<p class="a-hint" id="f-curvid">Current: ${esc(curVid)}</p>`:''}
+      <div id="f-vupload" hidden><label for="f-vfile">Video file</label><input id="f-vfile" type="file" accept="video/mp4,video/webm,.mp4,.webm"><p class="a-hint" id="f-vhint">${edit?'Replacing keeps the old video working until the new one has saved.':''}</p></div>
+      <div id="f-vurl" hidden><label for="f-vlink">Video link</label><input id="f-vlink" type="url" placeholder="https://youtube.com/watch?v=… or https://vimeo.com/…" inputmode="url"><p class="a-hint" id="f-vlinkhint"></p></div>
+      <label for="f-ratio">Aspect ratio</label><select id="f-ratio"><option value="auto">Auto-detect</option><option value="16:9">Landscape 16:9</option><option value="9:16">Vertical 9:16</option><option value="1:1">Square 1:1</option></select>
+      ${edit?`<p class="a-hint">Currently ${esc(p.aspect_ratio||'16:9')}. “Auto-detect” keeps this unless you change the video.</p>`:''}</div>
+
+      <div class="a-sec"><label for="f-tmode">Thumbnail</label>
+      <select id="f-tmode">${edit?'<option value="keep">Keep current thumbnail</option>':''}<option value="none" ${edit?'':'selected'}>${edit?'Remove (use placeholder)':'None (use placeholder)'}</option><option value="upload">Upload an image (JPG/PNG/WebP, max ${CONFIG.MAX_THUMB_MB} MB)</option><option value="url">Use an image link</option></select>
+      <div id="f-tupload" hidden><label for="f-tfile">Image file</label><input id="f-tfile" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"></div>
+      <div id="f-turl" hidden><label for="f-tlink">Image link</label><input id="f-tlink" type="url" placeholder="https://…" inputmode="url"><p><button type="button" class="a-btn a-btn-ghost a-btn-sm" data-a="yt-thumb" id="f-yt" hidden style="margin-top:8px">Use YouTube thumbnail</button></p></div></div>
+
+      <div class="a-sec"><label for="f-ext">Project link (optional)</label><input id="f-ext" type="url" placeholder="https://…" value="${esc(p?p.external_link||'':'')}">
+      <label class="a-check"><input id="f-feat" type="checkbox" ${p&&p.featured?'checked':''}> Featured (shown prominently in the hero)</label>
+      <label class="a-check"><input id="f-pub" type="checkbox" ${!p||p.published?'checked':''}> Published (visible to visitors)</label></div>
+
+      <div class="a-prog" id="a-prog" hidden><progress id="a-bar" max="100" value="0"></progress><div class="a-hint" id="a-stat" role="status"></div><button type="button" class="a-btn a-btn-ghost a-btn-sm" data-a="cancel-upload" id="a-cancelup" style="margin-top:6px" hidden>Cancel upload</button></div>
+      <p class="a-err" id="a-formerr" role="alert"></p>
+      <div class="a-foot"><button type="button" class="a-btn a-btn-ghost" data-a="close-form" id="a-cancel">Cancel</button><button type="submit" class="a-btn" id="a-save">${edit?'Save changes':'Save & publish'}</button></div>
+    </form></div></div>`;
+}
+function openForm(id){
+  if(A.busy)return;
+  A.editId=id||null;
+  const p=id?A.projects.find(x=>x.id===id):null;
+  if(!p&&A.projects.length>=CONFIG.MAX_PROJECTS){toast('Project limit reached.','err');return;}
+  adminEl().insertAdjacentHTML('beforeend',formHtml(p));
+  syncForm();$('#f-title').focus();
+}
+function closeForm(){if(A.busy)return;const o=$('#a-overlay');if(o)o.remove();A.editId=null;}
+function syncForm(){
+  const vm=$('#f-vmode').value,tm=$('#f-tmode').value;
+  $('#f-vupload').hidden=vm!=='upload';$('#f-vurl').hidden=vm!=='url';
+  $('#f-tupload').hidden=tm!=='upload';$('#f-turl').hidden=tm!=='url';
+  const pr=vm==='url'&&$('#f-vlink').value.trim()?parseVideoUrl($('#f-vlink').value):null;
+  $('#f-yt').hidden=!(pr&&pr.type==='youtube');
+  const h=$('#f-vlinkhint');
+  if(pr)h.textContent=pr.error?pr.error:(pr.type==='youtube'?'YouTube link recognised.':pr.type==='vimeo'?'Vimeo link recognised.':'Direct video link recognised.');
+  else h.textContent='';
+  h.style.color=pr&&pr.error?'#b3261e':'';
+  const pub=$('#f-pub');$('#a-save').textContent=$('#f-h').textContent==='Edit project'?'Save changes':(pub.checked?'Save & publish':'Save draft');
+}
+function readForm(){
+  return {
+    title:$('#f-title').value.trim(),category:$('#f-cat').value,format:$('#f-format').value.trim(),desc:$('#f-desc').value.trim(),
+    vmode:$('#f-vmode').value,vfile:$('#f-vfile').files[0]||null,vlink:$('#f-vlink').value.trim(),ratio:$('#f-ratio').value,
+    tmode:$('#f-tmode').value,tfile:$('#f-tfile').files[0]||null,tlink:$('#f-tlink').value.trim(),
+    ext:$('#f-ext').value.trim(),featured:$('#f-feat').checked,published:$('#f-pub').checked
+  };
+}
+function validateForm(v){
+  if(!v.title)return 'Please enter a title.';
+  if(v.vmode==='upload'){if(!v.vfile)return 'Choose a video file to upload.';const e=checkVideoFile(v.vfile);if(e)return e;}
+  if(v.vmode==='url'){const pr=parseVideoUrl(v.vlink);if(pr.error)return pr.error;}
+  if(v.tmode==='upload'){if(!v.tfile)return 'Choose a thumbnail image to upload.';const e=checkImageFile(v.tfile);if(e)return e;}
+  if(v.tmode==='url'){if(!/^https?:\/\//i.test(v.tlink))return 'Enter a full thumbnail link starting with https://';}
+  if(v.ext&&!/^https?:\/\//i.test(v.ext))return 'The project link must start with https://';
+  return null;
+}
+function setBusy(b){
+  A.busy=b;
+  const f=$('#a-form');if(!f)return;
+  $$('input,select,textarea,button',f).forEach(el=>{if(el.id!=='a-cancelup')el.disabled=b;});
+  $('#a-prog').hidden=!b;
+  if(!b)$('#a-cancelup').hidden=true;
+}
+const stat=t=>{const s=$('#a-stat');if(s)s.textContent=t;};
+const prog=(frac,label)=>{const b=$('#a-bar');if(b)b.value=Math.round(frac*100);if(label)stat(label+' '+Math.round(frac*100)+'%');};
+
+async function saveProject(){
+  if(A.busy)return;
+  const editing=A.editId?A.projects.find(x=>x.id===A.editId):null;
+  const v=readForm();const err=validateForm(v);
+  $('#a-formerr').textContent=err||'';if(err)return;
+  setBusy(true);$('#a-bar').value=0;
+  const created=[],stale=[];
+  try{
+    const id=editing?editing.id:uuid();
+    const row={title:v.title,category:v.category,description:v.desc||null,format_label:v.format||null,external_link:v.ext||null,featured:v.featured,published:v.published};
+    let detected=null;
+
+    if(v.vmode==='upload'){
+      stat('Checking video…');
+      detected=ratioOf(await probeFile(v.vfile).catch(()=>null));
+      const path=`projects/${id}/video-${Date.now()}.${videoExt(v.vfile)}`;
+      $('#a-cancelup').hidden=false;
+      await uploadFile(BUCKET_V,path,v.vfile,f=>prog(f,'Uploading video…'));
+      $('#a-cancelup').hidden=true;
+      created.push([BUCKET_V,path]);
+      Object.assign(row,{video_type:'upload',video_path:path,video_url:null});
+      if(editing&&editing.video_type==='upload')stale.push([BUCKET_V,editing.video_path]);
+    }else if(v.vmode==='url'){
+      const pr=parseVideoUrl(v.vlink);
+      if(pr.type==='direct'){stat('Checking video link…');detected=ratioOf(await probeVideo(pr.url));}
+      else detected=pr.ratio;
+      Object.assign(row,{video_type:pr.type,video_url:pr.url,video_path:null});
+      if(editing&&editing.video_type==='upload')stale.push([BUCKET_V,editing.video_path]);
+    }
+    if(v.ratio!=='auto')row.aspect_ratio=v.ratio;
+    else if(v.vmode!=='keep')row.aspect_ratio=detected||'16:9';
+
+    if(v.tmode==='upload'){
+      const path=`projects/${id}/thumb-${Date.now()}.${imageExt(v.tfile)}`;
+      $('#a-cancelup').hidden=false;
+      await uploadFile(BUCKET_T,path,v.tfile,f=>prog(f,'Uploading thumbnail…'));
+      $('#a-cancelup').hidden=true;
+      created.push([BUCKET_T,path]);
+      Object.assign(row,{thumbnail_path:path,thumbnail_url:null});
+      if(editing&&editing.thumbnail_path)stale.push([BUCKET_T,editing.thumbnail_path]);
+    }else if(v.tmode==='url'){
+      stat('Checking thumbnail link…');await probeImage(v.tlink);
+      Object.assign(row,{thumbnail_url:v.tlink,thumbnail_path:null});
+      if(editing&&editing.thumbnail_path)stale.push([BUCKET_T,editing.thumbnail_path]);
+    }else if(v.tmode==='none'){
+      Object.assign(row,{thumbnail_url:null,thumbnail_path:null});
+      if(editing&&editing.thumbnail_path)stale.push([BUCKET_T,editing.thumbnail_path]);
+    }
+
+    stat('Saving to the database…');
+    if(editing){
+      const {data,error}=await A.sb.from('projects').update(row).eq('id',id).select('id');
+      if(error)throw error;
+      if(!data||!data.length)throw new Error('Nothing was updated. Your account may not be authorised, or the project no longer exists.');
+    }else{
+      row.id=id;row.display_order=A.projects.reduce((m,p)=>Math.max(m,p.display_order||0),-1)+1;
+      const {data,error}=await A.sb.from('projects').insert(row).select('id');
+      if(error)throw error;
+      if(!data||!data.length)throw new Error('The project was not saved. Your account may not be authorised.');
+    }
+    // DB write succeeded: only now remove the replaced files
+    const leftover=stale.length?await removeFiles(stale):0;
+    setBusy(false);
+    const o=$('#a-overlay');if(o)o.remove();A.editId=null;
+    await refreshProjects();
+    toast(editing?'Saved. Your public site now shows this change.':'Project published. It is now live on your public site.','ok');
+    if(leftover)toast("Saved, but an old file couldn't be removed from storage. You can delete it in the Supabase dashboard.",'err');
+  }catch(e){
+    console.error('save failed',e);
+    if(created.length)await removeFiles(created);   // never leave half-finished uploads behind
+    setBusy(false);
+    if(isAuthErr(e)){await fail(e,'save');return;}
+    const el=$('#a-formerr');if(el)el.textContent=friendly(e)+(created.length?' (Nothing was changed — your existing project is untouched.)':'');
+  }
+}
+
+/* ----- delete / reorder / logout ----- */
+function askDelete(id){
+  const p=A.projects.find(x=>x.id===id);if(!p||A.busy)return;
+  const owns=[p.video_type==='upload'?'the uploaded video file':'',p.thumbnail_path?'the uploaded thumbnail':''].filter(Boolean);
+  adminEl().insertAdjacentHTML('beforeend',`<div class="a-overlay" id="a-overlay"><div class="a-panel" role="alertdialog" aria-modal="true" aria-labelledby="d-h" style="max-width:480px">
+    <h2 id="d-h">Delete “${esc(p.title)}”?</h2>
+    <p style="margin-top:8px">This permanently removes the project from your public portfolio and deletes its database record${owns.length?`, plus ${owns.join(' and ')} stored for this project`:''}.</p>
+    ${p.video_type!=='upload'?'<p class="a-hint" style="margin-top:8px">The original video on YouTube/Vimeo/other sites is not touched.</p>':''}
+    <p class="a-err" style="margin-top:8px">This cannot be undone.</p>
+    <div class="a-foot"><button class="a-btn a-btn-ghost" type="button" data-a="close-form">Cancel</button><button class="a-btn a-btn-danger" type="button" data-a="confirm-delete" data-id="${esc(id)}" id="d-go">Delete permanently</button></div></div></div>`);
+  $('#d-go').previousElementSibling.focus();
+}
+async function doDelete(id){
+  const p=A.projects.find(x=>x.id===id);if(!p||A.busy)return;
+  A.busy=true;const go=$('#d-go');if(go){go.disabled=true;go.textContent='Deleting…';}
+  try{
+    const {data,error}=await A.sb.from('projects').delete().eq('id',id).select('id');
+    if(error)throw error;
+    if(!data||!data.length)throw new Error('Nothing was deleted. Your account may not be authorised.');
+    const files=[];
+    if(p.video_type==='upload'&&p.video_path)files.push([BUCKET_V,p.video_path]);
+    if(p.thumbnail_path)files.push([BUCKET_T,p.thumbnail_path]);
+    const bad=files.length?await removeFiles(files):0;
+    A.busy=false;const o=$('#a-overlay');if(o)o.remove();
+    await refreshProjects();
+    toast(bad?'Project deleted, but some files could not be removed from storage. Remove them in the Supabase dashboard.':'Project deleted.',bad?'err':'ok');
+  }catch(e){
+    A.busy=false;const o=$('#a-overlay');if(o)o.remove();
+    await fail(e,'delete');
+  }
+}
+async function moveProject(id,dir){
+  if(A.busy)return;
+  const i=A.projects.findIndex(p=>p.id===id),j=i+dir;
+  if(i<0||j<0||j>=A.projects.length)return;
+  const next=A.projects.slice();[next[i],next[j]]=[next[j],next[i]];
+  A.busy=true;
+  try{
+    const {error}=await A.sb.rpc('reorder_projects',{ids:next.map(p=>p.id)});
+    if(error)throw error;
+    A.busy=false;await refreshProjects();
+  }catch(e){A.busy=false;await fail(e,'reorder');}
+}
+async function logout(){
+  if(A.busy)return;
+  renderLogin('You have been logged out.');
+  try{await A.sb.auth.signOut();}catch(_){}
+}
+
+function onAdminClick(e){
+  const b=e.target.closest('[data-a]');if(!b)return;
+  const a=b.dataset.a,id=b.dataset.id;
+  if(a==='logout')logout();
+  else if(a==='add')openForm(null);
+  else if(a==='edit')openForm(id);
+  else if(a==='delete')askDelete(id);
+  else if(a==='confirm-delete')doDelete(id);
+  else if(a==='close-form')closeForm();
+  else if(a==='up')moveProject(id,-1);
+  else if(a==='down')moveProject(id,1);
+  else if(a==='cancel-upload'){if(A.xhr)A.xhr.abort();}
+  else if(a==='yt-thumb'){const pr=parseVideoUrl($('#f-vlink').value);if(pr.type==='youtube'){$('#f-tmode').value='url';$('#f-tlink').value=`https://i.ytimg.com/vi/${pr.id}/hqdefault.jpg`;syncForm();}}
+}
+function initAdminEvents(){
+  const el=adminEl();
+  el.addEventListener('click',onAdminClick);
+  el.addEventListener('submit',e=>{
+    e.preventDefault();
+    if(e.target.id==='a-login')doLogin();
+    else if(e.target.id==='a-form')saveProject();
+  });
+  el.addEventListener('change',async e=>{
+    const t=e.target;
+    if(['f-vmode','f-tmode','f-pub'].includes(t.id))syncForm();
+    if(t.id==='f-vfile'&&t.files[0]){
+      const f=t.files[0],h=$('#f-vhint'),msg=checkVideoFile(f);
+      if(msg){h.textContent=msg;h.style.color='#b3261e';t.value='';return;}
+      h.style.color='';h.textContent=`${f.name} · ${MB(f.size)} MB — checking…`;
+      const r=ratioOf(await probeFile(f).catch(()=>null));
+      h.textContent=`${f.name} · ${MB(f.size)} MB`+(r?` · detected ${r}`:' · could not read video details (it may not play in every browser; re-export as H.264 MP4 if unsure)');
+    }
+    if(t.id==='f-tfile'&&t.files[0]){const m=checkImageFile(t.files[0]);if(m){$('#a-formerr').textContent=m;t.value='';}else $('#a-formerr').textContent='';}
+  });
+  el.addEventListener('input',e=>{if(e.target.id==='f-vlink')syncForm();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mode==='admin'&&$('#a-overlay')&&!A.busy)closeForm();});
+  window.addEventListener('beforeunload',e=>{if(A.busy){e.preventDefault();e.returnValue='';}});
+}
+
+/* =====================================================================
+   ROUTER  (#/admin = admin dashboard, anything else = public site)
+   ===================================================================== */
+let mode=null,adminInit=false;
+function setRobots(v){let m=$('meta[name="robots"]');if(m)m.content=v;}
+function route(){
+  const isAdmin=/^#\/admin/.test(location.hash);
+  if(isAdmin&&mode!=='admin'){
+    mode='admin';
+    if(viewerOpen)closeViewer();setMenu(false);
+    $('#public').hidden=true;adminEl().hidden=false;
+    document.title='Admin — Riyan Studio';setRobots('noindex,nofollow');
+    if(!adminInit){adminInit=true;initAdminEvents();}
+    window.scrollTo(0,0);enterAdmin();
+  }else if(!isAdmin&&mode!=='public'){
+    mode='public';
+    adminEl().hidden=true;$('#public').hidden=false;
+    document.title=PUBLIC_TITLE;setRobots('index,follow');
+    if(!publicReady)initPublic();
+    const id=location.hash.slice(1);
+    if(id&&id!=='/'){const t=document.getElementById(id);if(t)t.scrollIntoView();}
+  }
+}
+window.addEventListener('hashchange',route);
+route();
+})();
+</script>
+</body>
+</html>
