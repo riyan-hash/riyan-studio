@@ -866,10 +866,11 @@ async function enterAdmin(){
   try{await loadLib();}catch(e){shell(`<div class="a-card"><p class="a-err">${esc(e.message)} Check your internet connection and reload.</p></div>`);return;}
   if(!A.sb){
     A.sb=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}});
-    A.sb.auth.onAuthStateChange(ev=>{
-      if(ev==='SIGNED_OUT'&&A.view&&A.view!=='login'&&!A.busy)setTimeout(()=>renderLogin('You were signed out.'),0);
-    });
-  }
+   
+  }A.sb.auth.onAuthStateChange(ev=>{
+  if(ev==='PASSWORD_RECOVERY')setTimeout(renderPasswordRecovery,0);
+  if(ev==='SIGNED_OUT'&&A.view&&A.view!=='login'&&!A.busy)setTimeout(()=>renderLogin('You were signed out.'),0);
+});
   try{
     const {data,error}=await A.sb.auth.getSession();
     if(error)throw error;
@@ -877,16 +878,68 @@ async function enterAdmin(){
     await verifyAdmin(data.session);
   }catch(e){shell(`<div class="a-card"><p class="a-err">${esc(friendly(e))}</p></div>`);}
 }
-function renderLogin(msg){
-  A.view='login';
-  shell(`<div class="a-card a-login"><h1>Admin login</h1><p class="a-muted">Only the site owner can sign in here. Visitors never need to log in.</p>
-    <form class="a-form" id="a-login" novalidate>
-      <label for="l-email">Email</label><input id="l-email" type="email" autocomplete="username" required>
-      <label for="l-pw">Password</label><input id="l-pw" type="password" autocomplete="current-password" required>
-      <p class="a-err" id="l-err" role="alert">${esc(msg||'')}</p>
-      <div class="a-foot" style="justify-content:stretch"><button class="a-btn" style="flex:1" type="submit" id="l-btn">Log in</button></div>
-    </form></div>`);
+
+function renderPasswordRecovery(){
+  A.view='recovery';
+  shell(`<div class="a-card a-login">
+    <h1>Set new password</h1>
+    <form class="a-form" id="a-recovery" novalidate>
+      <label for="r-pw">New password</label>
+      <input id="r-pw" type="password" minlength="8" required>
+      <label for="r-confirm">Confirm password</label>
+      <input id="r-confirm" type="password" minlength="8" required>
+      <p class="a-err" id="r-err" role="alert"></p>
+      <button class="a-btn" style="width:100%" type="submit" id="r-btn">Save new password</button>
+    </form>
+  </div>`);
+  $('#a-recovery').addEventListener('submit',async ev=>{
+    ev.preventDefault();
+    const pw=$('#r-pw').value,confirm=$('#r-confirm').value;
+    const err=$('#r-err'),btn=$('#r-btn');
+    if(pw.length<8){err.textContent='Use at least 8 characters.';return;}
+    if(pw!==confirm){err.textContent='Passwords do not match.';return;}
+    btn.disabled=true;
+    err.textContent='Saving password...';
+    try{
+      const {error}=await A.sb.auth.updateUser({password:pw});
+      if(error)throw error;
+      await A.sb.auth.signOut();
+      renderLogin('Password updated. Log in with your new password.');
+    }catch(e){
+      err.textContent=friendly(e);
+      btn.disabled=false;
+    }
+  });
 }
+     function renderLogin(msg){
+  A.view='login';
+  shell(`<div class="a-card a-login"><h1>Admin login</h1><p class="a-muted">Only the site owner can sign in here.</p>
+  <form class="a-form" id="a-login" novalidate>
+  <label for="l-email">Email</label><input id="l-email" type="email" autocomplete="username" required>
+  <label for="l-pw">Password</label><input id="l-pw" type="password" autocomplete="current-password" required>
+  <p class="a-err" id="l-err" role="alert">${esc(msg||'')}</p>
+  <div class="a-foot" style="justify-content:flex-end"><button class="a-btn" style="flex:1" type="submit" id="l-btn">Log in</button></div>
+  <button class="a-btn" style="width:100%;margin-top:12px" type="button" id="l-reset">Forgot password?</button>
+  </form></div>`);
+  $('#l-reset').addEventListener('click',sendPasswordReset);
+}
+async function sendPasswordReset(){
+  const email=$('#l-email').value.trim(),err=$('#l-err'),btn=$('#l-reset');
+  if(!email){err.textContent='Enter your email first.';return;}
+  btn.disabled=true;
+  err.textContent='Sending reset email...';
+  try{
+    const {error}=await A.sb.auth.resetPasswordForEmail(email,{
+      redirectTo:'https://riyan-hash.github.io/riyan-studio/'
+    });
+    if(error)throw error;
+    err.textContent='Check your email for the reset link.';
+  }catch(e){
+    err.textContent=friendly(e);
+  }
+  btn.disabled=false;
+}
+
 async function doLogin(){
   const email=$('#l-email').value.trim(),pw=$('#l-pw').value,err=$('#l-err'),btn=$('#l-btn');
   if(!email||!pw){err.textContent='Enter your email and password.';return;}
